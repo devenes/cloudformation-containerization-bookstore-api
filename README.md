@@ -108,6 +108,6 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
 ## Resources
 
-- [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
+- [Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
 - [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
