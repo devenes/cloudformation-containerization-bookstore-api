@@ -1,8 +1,8 @@
-# Dockerization of Bookstore Web API Python Flask with MySQL using Docker Compose
+# Dockerization of Bookstore Web API Python Flask with MySQL using Docker Compose and CloudFormation
 
 ## Description
 
-Bookstore Web API Application aims to create a bookstore web service using Docker to have the understanding to dockerization of an application. The application code is to be deployed as a RESTful web service with Flask using Dockerfile and Docker Compose on AWS Elastic Compute Cloud (EC2) Instance using AWS Cloudformation Service.
+Bookstore Web API Application aims to create a bookstore web service using Docker to have the understanding to dockerization of an application. The application code is to be deployed as a RESTful web service with Flask using Dockerfile and Docker Compose on AWS Elastic Compute Cloud (EC2) Instance using AWS CloudFormation Service.
 
 ## Problem Statement
 
@@ -30,7 +30,7 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 | `PUT`       | Update a resource                   | http://[ec2-hostname]/books/123 (updates the book with id=123, from data provided with the request) |
 | `DELETE`    | Delete a resource                   | http://[ec2-hostname]/books/123 (delete the book with id=123)                                       |
 
-- You are, as a cloud engineer, requested to deploy the app in the development environment on a Docker Machine on AWS EC2 Instance using AWS Cloudformation Service to showcase your project. To do that you need to;
+- You are, as a cloud engineer, requested to deploy the app in the development environment on a Docker Machine on AWS EC2 Instance using AWS CloudFormation Service to showcase your project. To do that you need to;
 
   - Get the app code from GitHub repo of your team.
 
@@ -44,7 +44,7 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
     - Use a custom network for the services.
 
-- In the development environment, you can configure your Cloudformation template using the followings,
+- In the development environment, you can configure your CloudFormation template using the followings,
 
   - The application stack should be created with new AWS resources.
 
@@ -52,13 +52,13 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
   - EC2 Instance type can be configured as `t2.micro`.
 
-  - Instance launched by Cloudformation should be tagged `Web Server of StackName`
+  - Instance launched by CloudFormation should be tagged `Web Server of StackName`
 
   - The Web Application should be accessible via web browser from anywhere.
 
-  - The Application files should be downloaded from Github repo and deployed on EC2 Instance using user data script within cloudformation template.
+  - The Application files should be downloaded from Github repo and deployed on EC2 Instance using user data script within CloudFormation template.
 
-  - Bookstore Web API URL should be given as output by Cloudformation Service, after the stack created.
+  - Bookstore Web API URL should be given as output by CloudFormation Service, after the stack created.
 
 ## Expected Outcome
 
@@ -76,9 +76,9 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
 - AWS Security Group Configuration
 
-- AWS Cloudformation Service
+- AWS CloudFormation Service
 
-- AWS Cloudformation Template Design
+- AWS CloudFormation Template Design
 
 - Git & Github for Version Control System
 
@@ -90,13 +90,13 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
 - configure Docker Compose to run Python Flask app.
 
-- improve bash scripting skills using `user data` section in Cloudformation to install and setup web application on EC2 Instance
+- improve bash scripting skills using `user data` section in CloudFormation to install and setup web application on EC2 Instance
 
 - configure AWS EC2 Instance and Security Groups.
 
-- configure Cloudformation template to use AWS Resources.
+- configure CloudFormation template to use AWS Resources.
 
-- use AWS Cloudformation Service to launch stacks.
+- use AWS CloudFormation Service to launch stacks.
 
 - use git commands (push, pull, commit, add etc.) and Github as Version Control System.
 
@@ -110,4 +110,4 @@ Bookstore Web API Application aims to create a bookstore web service using Docke
 
 - [REpresentational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
 
-- [AWS Cloudformation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
