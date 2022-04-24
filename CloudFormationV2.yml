@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 
 Description: |
   Bookstore Web API Application aims to create a bookstore web service using Docker 
-  to give students the understanding to dockerization of an application. 
+  to have the understanding to dockerization of an application. 
   The application code is to be deployed as a RESTful web service with 
   Flask using Dockerfile and Docker Compose on AWS Elastic Compute Cloud (EC2) Instance 
   using AWS Cloudformation Service.
@@ -53,7 +53,7 @@ Resources:
           chmod +x /usr/local/bin/docker-compose           
           ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
           mkdir -p /home/ec2-user/bookstore-api
-          FOLDER="https://raw.githubusercontent.com/devenes/containerization-bookstore-api-cf/main/"
+          FOLDER="https://raw.githubusercontent.com/devenes/cloudformation-containerization-bookstore-api/main/"
           curl -s --create-dirs -o "/home/ec2-user/bookstore-api/bookstore-api.py" -L "$FOLDER"bookstore-api.py
           curl -s --create-dirs -o "/home/ec2-user/bookstore-api/requirements.txt" -L "$FOLDER"requirements.txt
           curl -s --create-dirs -o "/home/ec2-user/bookstore-api/Dockerfile" -L "$FOLDER"Dockerfile
