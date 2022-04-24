@@ -1,16 +1,21 @@
 AWSTemplateFormatVersion: 2010-09-09
+Description: >
+  Bookstore Web API Application aims to create a bookstore web service using
+  Docker 
 
-Description: |
-  Bookstore Web API Application aims to create a bookstore web service using Docker 
-  to give students the understanding to dockerization of an application. 
+  to have the understanding to dockerization of an application. 
+
   The application code is to be deployed as a RESTful web service with 
-  Flask using Dockerfile and Docker Compose on AWS Elastic Compute Cloud (EC2) Instance 
+
+  Flask using Dockerfile and Docker Compose on AWS Elastic Compute Cloud (EC2)
+  Instance 
+
   using AWS Cloudformation Service.
 
 Parameters:
   KeyPairName:
     Description: Enter the name of your Key Pair for SSH connections.
-    Type: AWS::EC2::KeyPair::KeyName
+    Type: "AWS::EC2::KeyPair::KeyName"
     ConstraintDescription: Must one of the existing EC2 KeyPair
 
 Resources:
@@ -41,28 +46,54 @@ Resources:
         - !Ref WebServerSecurityGroup
       Tags:
         - Key: Name
-          Value: !Sub Web Server of ${AWS::StackName}
-      UserData:
-        Fn::Base64: !Sub |
+          Value: !Sub "Web Server of ${AWS::StackName}"
+      UserData: !Base64
+        "Fn::Sub": >
           #! /bin/bash
+
           yum update -y
-          wget https://raw.githubusercontent.com/devenes/containerization-bookstore-api-cf/main/Dockerfile -P /home/ec2-user
-          wget https://raw.githubusercontent.com/devenes/containerization-bookstore-api-cf/main/bookstore-api.py -P /home/ec2-user
-          wget https://raw.githubusercontent.com/devenes/containerization-bookstore-api-cf/main/docker-compose.yml -P /home/ec2-user
-          wget https://raw.githubusercontent.com/devenes/containerization-bookstore-api-cf/main/requirements.txt -P /home/ec2-user
+
+          wget
+          https://raw.githubusercontent.com/devenes/cloudformation-containerization-bookstore-api/main/Dockerfile
+          -P /home/ec2-user
+
+          wget
+          https://raw.githubusercontent.com/devenes/cloudformation-containerization-bookstore-api/main/bookstore-api.py
+          -P /home/ec2-user
+
+          wget
+          https://raw.githubusercontent.com/devenes/cloudformation-containerization-bookstore-api/main/docker-compose.yml
+          -P /home/ec2-user
+
+          wget
+          https://raw.githubusercontent.com/devenes/cloudformation-containerization-bookstore-api/main/requirements.txt
+          -P /home/ec2-user
+
           amazon-linux-extras install docker
+
           service docker start
+
           usermod -a -G docker ec2-user
-          curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+          curl -L
+          "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname
+          -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
           chmod +x /usr/local/bin/docker-compose           
+
           ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
           cd /home/ec2-user
+
           docker build -t devenes/bookstore-api:latest .
+
           docker-compose up
 
 Outputs:
   WebsiteURL:
     Description: BookStore Web API
     Value: !Sub
-      - http://${PublicAddress}
-      - PublicAddress: !GetAtt WebServerHost.PublicDnsName
+      - "http://${PublicAddress}"
+      - PublicAddress: !GetAtt
+          - WebServerHost
+          - PublicDnsName
